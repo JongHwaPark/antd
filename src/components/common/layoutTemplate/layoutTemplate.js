@@ -5,6 +5,7 @@ import { Layout, Menu } from 'antd';
 import {
   DesktopOutlined,
   PieChartOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
 
 import Logo from './assets/logo.png';
@@ -74,6 +75,9 @@ function SideFooter() {
   return (
     <div className="side-footer">
       <div className="side-footer-wrap">
+        <div>
+          <SettingOutlined />
+        </div>
         <ul className="time-wrap">
           <li>오후 3:41</li>
           <li>2020-03-20</li>
@@ -86,7 +90,7 @@ function SideFooter() {
 function LayoutTemplate({ children }) {
 
   return (
-    <Layout style={{ minHeight: '100vh', flexDirection: 'row' }}>
+    <Layout style={{ width:'1500px', height:'1000px', margin:'0 auto', minHeight: '100vh', flexDirection: 'row' }}>
       <Sider >
         <div className="logo">
           <img src={Logo} />

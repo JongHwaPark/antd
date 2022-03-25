@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Button, Divider, Typography, Space } from 'antd';
 import { Stage, Sprite } from '@inlet/react-pixi';
 import * as RobotApi from '../../../lib/Robot';
 import * as FileApi from '../../../lib/File';
-
-import RobotPositionJoyStick from '../../common/robotPositionJoyStick';
 
 function CanvasMap() {
   const [imgData, setImgData] = useState();
@@ -85,10 +83,50 @@ function RobotControl() {
     <>
       <Row>
         <Col span={12}>
-          {/* <CanvasMap /> */}
+          <CanvasMap />
         </Col>
         <Col span={12}>
-          <RobotPositionJoyStick />
+          <Row>
+            <Col>
+              <Space direction={"vertical"} size={"small"}>
+                <Typography.Title level={4} style={{ margin: 0 }}>로봇 상태</Typography.Title>
+                <Typography.Title level={4} type="success" style={{ margin: 0 }}>MOVING</Typography.Title>
+              </Space>      
+            </Col>
+          </Row>
+          <Divider />
+          <Row>
+            <Col>
+              <Space direction='vertical'>
+                <Typography.Title level={4} style={{ margin: 0 }}>시공로봇 트레킹</Typography.Title>
+                <Space direction='horizontal'>
+                  <Button type="primary">START</Button>
+                  <Button type="danger">STOP</Button>
+                </Space>
+              </Space>
+            </Col>
+          </Row>
+          <Divider />
+          <Row>
+            <Col>
+              <Typography.Title level={4} >시공 관리</Typography.Title>
+              <Space size={"middle"}>
+                <Button type="primary">시공로봇 관리</Button>
+                <Button type="primary">시공점 관리</Button>
+              </Space>
+            </Col>
+          </Row>
+          <Divider />
+          <Row>
+            <Col>
+              <Typography.Title level={4} >Operation Command</Typography.Title>
+              <Space size={"middle"}>
+                <Button type="primary">로봇 제어</Button>
+                <Button type="primary">참조점 추가</Button>
+                <Button type="primary">표면스캔 / 평탄도</Button>
+              </Space>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

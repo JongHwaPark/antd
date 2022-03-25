@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
+(function setViewportScale() {
+  const statusBarSize = 24;
+  const width = window.screen.width;
+  const height = window.screen.height - statusBarSize;
+  const scale = Math.min(width / 1500, height / 1000);
+  const viewport = document.querySelector("meta[name=viewport]");
+  viewport.setAttribute('content', `initial-scale=${scale}, user-scalable=no`);
+  console.log('asdasdasdd');
+})();
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

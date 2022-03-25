@@ -10,6 +10,7 @@ import Operation from './operation';
 import Device from './device';
 import Setting from './setting';
 import Log from './log';
+import './App.css';
 
 function App() {
   return (
