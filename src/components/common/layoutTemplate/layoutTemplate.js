@@ -86,7 +86,7 @@ function SideFooter() {
 function LayoutTemplate({ children }) {
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh', flexDirection: 'row' }}>
       <Sider >
         <div className="logo">
           <img src={Logo} />
