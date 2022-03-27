@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Button, Divider, Typography, Space } from 'antd';
+
 import { Stage, Sprite } from '@inlet/react-pixi';
 import * as RobotApi from '../../../lib/Robot';
 import * as FileApi from '../../../lib/File';
+
+import RobotControlPopUp from './robotControlPopup';
+import RobotEditPopUp from './robotEditPopup';
 
 function CanvasMap() {
   const [imgData, setImgData] = useState();
@@ -79,6 +83,15 @@ function CanvasMap() {
 }
 
 function RobotControl() {
+  const [robotControlPopupVisible, setRobotControlPopupVisible] = useState(false);
+  const [robotEditPopupVisible, setRobotEditPopupVisible] = useState(false);
+  const cancelRobotControlPopup = () => {
+    setRobotControlPopupVisible(false);
+  }
+  const cancelRobotEditPopup = () => {
+    setRobotEditPopupVisible(false);
+  }
+
   return (
     <>
       <Row>
@@ -121,14 +134,24 @@ function RobotControl() {
             <Col>
               <Typography.Title level={4} >Operation Command</Typography.Title>
               <Space size={"middle"}>
-                <Button type="primary">로봇 제어</Button>
-                <Button type="primary">참조점 추가</Button>
+                <Button type="primary" onClick={() => setRobotControlPopupVisible(true)}>로봇 제어</Button>
+                <Button type="primary" onClick={() => setRobotEditPopupVisible(true)}>참조점 추가</Button>
                 <Button type="primary">표면스캔 / 평탄도</Button>
               </Space>
             </Col>
           </Row>
         </Col>
       </Row>
+      <RobotControlPopUp 
+        visible={robotControlPopupVisible}
+        onOk={cancelRobotControlPopup}
+        onCancel={cancelRobotControlPopup}
+      />
+      <RobotEditPopUp 
+        visible={robotEditPopupVisible}
+        onOk={cancelRobotEditPopup}
+        onCancel={cancelRobotEditPopup}
+      />
     </>
   );
 }
