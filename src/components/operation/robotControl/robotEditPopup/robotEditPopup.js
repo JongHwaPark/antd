@@ -162,18 +162,7 @@ function RobotEditPopup({
           >
               <Row>
                 <Col span={8}>
-                  <Row justify='space-between' align='middle'>
-                    <Col><strong>Point1</strong></Col>
-                    <Col><Button type="text"><CloseCircleOutlined style={{color:'#df4949'}} /></Button></Col>
-                  </Row>
-                  <Space direction='vertical'>
-                    <span>x : 305.51</span>
-                    <span>y : 305.51</span>
-                    <span>z : 305.51</span>
-                  </Space>                
-                </Col>
-                <Col span={8}>
-                  <Button type="dashed" style={{height:'100%', width:'100%'}}>
+                  <Button type="dashed" style={{minHeight:'114px', height:'100%', width:'100%'}}>
                     <PlusOutlined style={{ fontSize: '1.5em', color: '#08c' }}/>
                   </Button>
                 </Col>
@@ -187,7 +176,7 @@ function RobotEditPopup({
           </Card>        
         </Col>
         <Col span={8}>
-          <Button type="dashed" style={{height:'100%', width:'100%'}}>
+          <Button type="dashed" style={{minHeight:'271px', height:'100%', width:'100%'}}>
             <PlusOutlined style={{ fontSize: '1.5em', color: '#08c' }}/>
           </Button>
         </Col>
